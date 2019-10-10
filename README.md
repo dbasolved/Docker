@@ -4,8 +4,11 @@ Usage:
 
 1. Clone respository
 2. Enter folder
+
   $ cd GG19c
+  
 3. Copy required software to ORASoftware directory
 4. Build image
+
   $ docker build -t <tags> -f Dockerfile .
 
