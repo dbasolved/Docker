@@ -1,0 +1,7 @@
+docker network create --driver=bridge --subnet=172.30.0.0/16 --ip-range=172.30.10.0/16 ggnet
+
+docker build -t db19c:19.3.0 .
+
+docker run -dit --memory=512M --privileged --mount type=bind,source="/Users/bocurtis/Test_Software",target=/Test_Software --hostname=gg19c1 -p 59011:5901/tcp -p 1522:1521/tcp -p 16000-16005:16000-16005/tcp  -p 443:443/tcp --name gg19c gg19c:19.1.0.0.2
+
+docker run -dit --memory=1024M --privileged --mount type=bind,source="/Users/bocurtis/Test_Software",target=/Test_Software --hostname=db19c1 -p 1521:1521/tcp -p 59013:5901 --name db19c db19c:19.3.0 

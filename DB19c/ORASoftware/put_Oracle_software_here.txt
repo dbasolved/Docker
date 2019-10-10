@@ -1,0 +1,4 @@
+Copy needed Oracle Software to this directory.
+
+Need software for this container:
+Oracle Database 19c Enterprise Edition (19.3.0.0.0) - LINUX.X64_193000_db_home.zip
