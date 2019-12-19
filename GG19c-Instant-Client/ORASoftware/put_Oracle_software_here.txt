@@ -1,0 +1,6 @@
+Copy needed Oracle Software to this directory.
+
+Need software for this container:
+Oracle GoldenGate 19c Microservices (19.1.0.0.2)
+Oracle Database 19c Client
+Oracle Database 18c Client
