@@ -3,12 +3,13 @@ ARG BASE_IMAGE=oraclelinux:latest
 FROM ${BASE_IMAGE}
 USER root
 
-LABEL version=1.0 \
+LABEL version=1.1 \
       maintainer="Bobby Curtis, MBA - curtisbl@gmail.com/bobby.curtis@oracle.com" \
       description="Builds an Oracle GoldenGate 19c image on top of Oracle Linux"
       
 #Command during the build
-#RUN sed -i -e '/^\[main\]/aproxy=http://www-proxy.us.oracle.com:80' /etc/yum.conf 
+RUN sed -i -e '/^\[main\]/aproxy=http://www-proxy.us.oracle.com:80' /etc/yum.conf 
+RUN echo "Welcome1" | passwd --stdin root 
 RUN yum install -y  openssh \
                     oracle-database-preinstall-19c \
                     nginx \

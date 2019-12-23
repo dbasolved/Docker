@@ -2,6 +2,8 @@ docker network create --driver=bridge --subnet=172.30.0.0/16 --ip-range=172.30.1
 
 docker build -t db19c:19.3.0 .
 
-docker run -dit --memory=1024M --privileged --mount type=bind,source="/Users/bocurtis/Test_Software",target=/Test_Software --hostname=gg19c1 -p 59011:5901/tcp -p 1522:1521/tcp -p 16000-16005:16000-16005/tcp -p 17000-17005:17000-17005/tcp -p 443:443/tcp  --name ogg19c1 ogg19c:19.1.0.0.4
+docker run -dit --memory=1024M --privileged -v gg_deployments:/opt/app/oracle/gg_deployments:rw --hostname=gg19c -p 59011:5901/tcp -p 1522:1521/tcp -p 16000-16005:16000-16005/tcp -p 17000-17005:17000-17005/tcp -p 443:443/tcp  --name ogg19c ogg19c:19.1.0.0.4
 
-docker run -dit --memory=1024M --privileged --mount type=bind,source="/Users/bocurtis/Test_Software",target=/Test_Software --hostname=db19c1 -p 1521:1521/tcp -p 59013:5901 --name db19c db19c:19.3.0 
+docker run -dit --memory=1024M --privileged -v gg_deployments:/opt/app/oracle/gg_deployments:rw --hostname=gg19c1 -p 59012:5901/tcp -p 1523:1521/tcp -p 18000-18005:18000-18005/tcp -p 19000-19005:19000-19005/tcp -p 444:443/tcp  --name ogg19c1 ogg19c:19.1.0.0.4
+
+docker run -dit --memory=1024M --privileged --mount type=bind,source="/Users/bocurtis/Test_Software",target=/Test_Software --hostname=db19c -p 1521:1521/tcp -p 59013:5901 --name db19c db19c:19.3.0 
